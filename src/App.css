@@ -40,7 +40,51 @@
 footer {
   background-color: #282c34;
   color: #fff;
-  padding: 1rem 0;
   width: 100%;
-  border-top: 1px solid #fff;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }
+
+footer h2 {
+    text-align: center;
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.content {
+   background: url("https://i.picsum.photos/id/100/2500/1656.jpg") no-repeat center center fixed;
+   background-size: cover;
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   flex-direction: column;
+}
+
+.content h2 {
+    text-align: center;
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    display: flex;
+    font-size: 1rem;
+}
+

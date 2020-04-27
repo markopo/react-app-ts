@@ -3,6 +3,7 @@ import React from "react";
 export interface HeaderProps {
     logo: any;
     text: string;
+    headerRef: React.RefObject<any>;
 }
 
 export default class Header extends React.Component<HeaderProps, any>{
@@ -10,7 +11,7 @@ export default class Header extends React.Component<HeaderProps, any>{
 
     render(): React.ReactNode {
         return (
-            <header className="App-header">
+            <header ref={this.props.headerRef} className="App-header">
                 <img src={this.props.logo} className="App-logo" alt="logo" />
                 <p>
                     {this.props.text}
