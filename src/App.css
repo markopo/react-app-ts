@@ -1,3 +1,18 @@
+html, body {
+    scroll-behavior: smooth;
+}
+
+body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url("https://i.picsum.photos/id/100/2500/1656.jpg")
+    url("https://i.picsum.photos/id/1018/3914/2935.jpg")
+    url("https://i.picsum.photos/id/1016/3844/2563.jpg");
+}
+
 .App {
   text-align: center;
 }
@@ -59,7 +74,9 @@ footer h2 {
 }
 
 .content {
-   background: url("https://i.picsum.photos/id/100/2500/1656.jpg") no-repeat center center fixed;
+   background-color: #282c34;
+   background-repeat: no-repeat;
+   background-position: center center;
    background-size: cover;
    margin: 0;
    padding: 0;
@@ -70,6 +87,7 @@ footer h2 {
    align-content: center;
    flex-direction: column;
 }
+
 
 .content h2 {
     text-align: center;
@@ -86,5 +104,12 @@ footer h2 {
     padding: 1rem;
     display: flex;
     font-size: 1rem;
+}
+
+.preloader {
+    visibility: hidden;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
 }
 

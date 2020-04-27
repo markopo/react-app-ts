@@ -14,6 +14,12 @@ class App extends React.Component<any, any>{
   private readonly contentThreeRef: React.RefObject<any>;
   private readonly footerRef: React.RefObject<any>;
 
+  private readonly images: string[] = [
+      "https://i.picsum.photos/id/100/2500/1656.jpg",
+      "https://i.picsum.photos/id/1018/3914/2935.jpg",
+      "https://i.picsum.photos/id/1016/3844/2563.jpg"
+  ];
+
   constructor(props: any) {
       super(props);
 
@@ -24,7 +30,11 @@ class App extends React.Component<any, any>{
       this.footerRef = React.createRef();
   }
 
-  render(): React.ReactNode {
+  componentDidMount(): void {
+    
+  }
+
+    render(): React.ReactNode {
 
       const headerProps: HeaderProps = {
           logo,
@@ -38,13 +48,14 @@ class App extends React.Component<any, any>{
           footerRef: this.footerRef
       };
 
+
       return (
           <div className="App">
               <Menu headerRef={this.headerRef} contentOneRef={this.contentOneRef} contentTwoRef={this.contentTwoRef} contentThreeRef={this.contentThreeRef} footerRef={this.footerRef}  />
               <Header headerRef={this.headerRef}  logo={headerProps.logo} text={headerProps.text} />
-              <Content id="content-one" contentRef={this.contentOneRef} imageUrl="https://i.picsum.photos/id/100/2500/1656.jpg" name="Content One"  />
-              <Content id="content-two" contentRef={this.contentTwoRef} name="Content Two" imageUrl="https://i.picsum.photos/id/1004/5616/3744.jpg" />
-              <Content id="content-three" contentRef={this.contentThreeRef} name="Content Three" imageUrl="https://i.picsum.photos/id/1016/3844/2563.jpg" />
+              <Content id="content-one" contentRef={this.contentOneRef} imageUrl={this.images[0]} name="Content One"  />
+              <Content id="content-two" contentRef={this.contentTwoRef} name="Content Two" imageUrl={this.images[1]} />
+              <Content id="content-three" contentRef={this.contentThreeRef} name="Content Three" imageUrl={this.images[2]} />
               <Footer footerRef={this.footerRef} year={footerProps.year} text={footerProps.text}  />
           </div>
       );
