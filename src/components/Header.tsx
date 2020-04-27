@@ -1,16 +1,19 @@
 import React from "react";
-import logo from "../logo.svg";
 
+export interface HeaderProps {
+    logo: any;
+    text: string;
+}
 
-export default class Header extends React.Component<any, any>{
+export default class Header extends React.Component<HeaderProps, any>{
 
 
     render(): React.ReactNode {
         return (
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                <img src={this.props.logo} className="App-logo" alt="logo" />
                 <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
+                    {this.props.text}
                 </p>
                 <a
                     className="App-link"
