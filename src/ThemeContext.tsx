@@ -1,15 +1,25 @@
 
 import React, { useState, useLayoutEffect } from 'react';
 
+
 export enum ThemeMode {
     Dark,
     Light
 }
 
-export const ThemeContext = React.createContext({
-    dark: ThemeMode.Light,
+export const defaultThemeMode: ThemeMode = ThemeMode.Light;
+
+export interface IThemeContext {
+    dark: ThemeMode,
+    toggle: () => void
+}
+
+export let defaultIThemeContext: IThemeContext = {
+    dark: defaultThemeMode,
     toggle: () => {},
-});
+};
+
+export const ThemeContext = React.createContext<IThemeContext>(defaultIThemeContext);
 
 export function getSavedTheme(): ThemeMode {
    const mode: any =  window.localStorage.getItem('darkTheme');
@@ -22,17 +32,16 @@ export function getSavedTheme(): ThemeMode {
            if (tMode !== undefined){
                  return tMode as ThemeMode;
            } else {
-               return ThemeMode.Light;
+               return defaultThemeMode
            }
 
        } catch (e) {
            console.log('error', e.message);
-           return ThemeMode.Light;
+           return defaultThemeMode;
        }
    }
 
-
-   return ThemeMode.Dark;
+   return defaultThemeMode;
 }
 
 export function ThemeProvider (props: any) {

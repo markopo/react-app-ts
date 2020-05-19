@@ -37,6 +37,10 @@ button {
     margin: 0 .4rem;
 }
 
+.Switch .icon.selected {
+    color: yellow;
+}
+
 body::after {
     position: absolute;
     width: 0;
