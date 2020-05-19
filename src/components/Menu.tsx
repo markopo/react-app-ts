@@ -1,6 +1,7 @@
 import React from "react";
 import { scrollTo } from "../functions/scrollto";
 import Modal from "./Modal";
+import Switch from "./Switch";
 
 export interface MenuProps {
     headerRef: React.RefObject<any>;
@@ -31,6 +32,8 @@ export default class Menu extends React.Component<MenuProps, any>{
     }
 
     toggleModal = () => {
+
+        this.clickNavigate(NavigateState.Header);
 
         const toggle = !this.state.showModal;
         this.setState({
@@ -70,6 +73,7 @@ export default class Menu extends React.Component<MenuProps, any>{
                     <button onClick={() => this.clickNavigate(NavigateState.ContentTwo)} >Content 2</button>
                     <button onClick={() => this.clickNavigate(NavigateState.ContentThree)} >Content 3</button>
                     <button onClick={() => this.clickNavigate(NavigateState.Footer)} >Footer</button>
+                    <Switch />
                     <React.Fragment>
                         { showModal ? (
                         <Modal>

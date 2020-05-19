@@ -1,10 +1,40 @@
 :root {
     --bg-color: #282c34;
-    --color: #fff;
+    --color: #000;
+    --border: rgba(0,0,0,.2);
+    --shadow: #000;
+    --heading: rgba(255,100,0,1);
+    --main: #c8b411;
+    --text: #262525;
+    --textAlt: #262525;
+    --inactive: rgba(0,0,0,.3);
+    --background: #fff;
+    --overlay: rgba(200, 180, 17, 0.3);
 }
+
+*:not(body) { transition: all .5s ease; }
 
 html, body {
     scroll-behavior: smooth;
+}
+
+button {
+    background: var(--main);
+    color: var(--textAlt);
+    padding: .5rem .75rem;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 .1rem;
+}
+
+.Switch {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Switch * {
+    margin: 0 .4rem;
 }
 
 body::after {
@@ -41,11 +71,11 @@ body::after {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--main);
 }
 
 .App-link {
-  color: #61dafb;
+    color: var(--main);
 }
 
 @keyframes App-logo-spin {
@@ -59,7 +89,7 @@ body::after {
 
 footer {
   background-color: var(--bg-color);
-  color: var(--color);
+  color: var(--main);
   width: 100%;
   height: 100vh;
   margin: 0;
@@ -75,7 +105,7 @@ footer h2 {
     text-align: center;
     font-size: 5rem;
     text-transform: uppercase;
-    color: var(--color);
+    color: var(--main);
 }
 
 .content {
@@ -98,7 +128,7 @@ footer h2 {
     text-align: center;
     font-size: 5rem;
     text-transform: uppercase;
-    color: var(--color);
+    color: var(--main);
 }
 
 
@@ -119,7 +149,7 @@ footer h2 {
 }
 
 .my-modal-overlay {
-    background: rgba(10, 129, 243, 0.71);
+    background: var(--overlay);
     z-index: 1000;
     position: absolute;
     top: 0;
@@ -138,9 +168,10 @@ footer h2 {
     min-height: 300px;
     width: 50vw;
     min-width: 300px;
-    border: 1px solid #fff;
+    border: 1px solid var(--main);
     border-radius: 8px;
-    background: #fff;
+    background: var(--main);
+    color: var(--textAlt);
     text-align: center;
 }
 
