@@ -41,6 +41,14 @@ button {
     color: yellow;
 }
 
+.beer .icon {
+    margin: 0 .4rem;
+}
+
+.beer .icon.selected {
+    color: yellow;
+}
+
 body::after {
     position: absolute;
     width: 0;

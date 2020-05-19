@@ -10,13 +10,17 @@ export enum ThemeMode {
 export const defaultThemeMode: ThemeMode = ThemeMode.Light;
 
 export interface IThemeContext {
+    hasBeer: boolean,
     dark: ThemeMode,
-    toggle: () => void
+    toggle: () => void,
+    toggleBeer: () => void
 }
 
 export let defaultIThemeContext: IThemeContext = {
+    hasBeer: false,
     dark: defaultThemeMode,
     toggle: () => {},
+    toggleBeer: () => {}
 };
 
 export const ThemeContext = React.createContext<IThemeContext>(defaultIThemeContext);
@@ -44,8 +48,19 @@ export function getSavedTheme(): ThemeMode {
    return defaultThemeMode;
 }
 
+export function getSavedHasBeer(): boolean {
+    const beer = window.localStorage.getItem('hasBeer');
+
+    if (beer !== null) {
+        return beer === 'true';
+    }
+
+    return false;
+}
+
 export function ThemeProvider (props: any) {
-    const [dark, setDark] = useState<ThemeMode>(getSavedTheme());
+    const [dark, setDark ] = useState<ThemeMode>(getSavedTheme());
+    const [ hasBeer, setHasBeer ] = useState<boolean>(getSavedHasBeer());
 
     useLayoutEffect(() => {
         const lastTheme: ThemeMode = getSavedTheme();
@@ -59,7 +74,9 @@ export function ThemeProvider (props: any) {
             applyTheme(lightTheme);
         }
 
-    }, [dark]);
+        setHasBeer(getSavedHasBeer());
+
+    }, [dark, hasBeer]);
 
     const applyTheme = (theme: any) => {
         const root = document.getElementsByTagName('html')[0];
@@ -72,9 +89,16 @@ export function ThemeProvider (props: any) {
         window.localStorage.setItem('darkTheme', ThemeMode[toggleMode]);
     };
 
+    const toggleBeer = () => {
+        setHasBeer(!hasBeer);
+        window.localStorage.setItem('hasBeer', (!hasBeer).toString());
+    };
+
     return <ThemeContext.Provider value={{
+            hasBeer,
             dark,
             toggle,
+            toggleBeer
         }}>
         {props.children}
         </ThemeContext.Provider>;

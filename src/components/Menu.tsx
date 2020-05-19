@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import { scrollTo } from "../functions/scrollto";
 import Modal from "./Modal";
 import Switch from "./Switch";
+import Beer from "./Beer";
+import {ThemeContext} from "../ThemeContext";
 
 export interface MenuProps {
     headerRef: React.RefObject<any>;
@@ -29,6 +31,11 @@ export default class Menu extends React.Component<MenuProps, any>{
         };
 
         this.clickNavigate = this.clickNavigate.bind(this);
+
+    }
+
+    componentDidUpdate(prevProps: Readonly<MenuProps>, prevState: Readonly<any>, snapshot?: any) {
+
     }
 
     toggleModal = () => {
@@ -74,6 +81,7 @@ export default class Menu extends React.Component<MenuProps, any>{
                     <button onClick={() => this.clickNavigate(NavigateState.ContentThree)} >Content 3</button>
                     <button onClick={() => this.clickNavigate(NavigateState.Footer)} >Footer</button>
                     <Switch />
+                    <Beer />
                     <React.Fragment>
                         { showModal ? (
                         <Modal>
