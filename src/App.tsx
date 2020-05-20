@@ -6,6 +6,7 @@ import logo from "./logo.svg";
 import Content from "./components/Content";
 import Menu from "./components/Menu";
 
+
 class App extends React.Component<any, any>{
 
   private readonly headerRef: React.RefObject<any>;
@@ -20,6 +21,7 @@ class App extends React.Component<any, any>{
       "https://i.picsum.photos/id/1016/3844/2563.jpg"
   ];
 
+
   constructor(props: any) {
       super(props);
 
@@ -28,10 +30,7 @@ class App extends React.Component<any, any>{
       this.contentTwoRef = React.createRef();
       this.contentThreeRef = React.createRef();
       this.footerRef = React.createRef();
-  }
 
-  componentDidMount(): void {
-    
   }
 
     render(): React.ReactNode {
@@ -53,9 +52,9 @@ class App extends React.Component<any, any>{
           <div className="App">
               <Menu headerRef={this.headerRef} contentOneRef={this.contentOneRef} contentTwoRef={this.contentTwoRef} contentThreeRef={this.contentThreeRef} footerRef={this.footerRef}  />
               <Header headerRef={this.headerRef}  logo={headerProps.logo} text={headerProps.text} />
-              <Content id="content-one" contentRef={this.contentOneRef} imageUrl={this.images[0]} name="Content One"  />
-              <Content id="content-two" contentRef={this.contentTwoRef} name="Content Two" imageUrl={this.images[1]} />
-              <Content id="content-three" contentRef={this.contentThreeRef} name="Content Three" imageUrl={this.images[2]} />
+              <Content id="content-one" contentRef={this.contentOneRef} imageUrl={this.images[0]} name="Content One" postId={1} />
+              <Content id="content-two" contentRef={this.contentTwoRef} name="Content Two" imageUrl={this.images[1]} postId={2} />
+              <Content id="content-three" contentRef={this.contentThreeRef} name="Content Three" imageUrl={this.images[2]} postId={3} />
               <Footer footerRef={this.footerRef} year={footerProps.year} text={footerProps.text}  />
           </div>
       );

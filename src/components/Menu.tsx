@@ -1,9 +1,8 @@
-import React, {useContext} from "react";
+import React from "react";
 import { scrollTo } from "../functions/scrollto";
 import Modal from "./Modal";
 import Switch from "./Switch";
 import Beer from "./Beer";
-import {ThemeContext} from "../ThemeContext";
 
 export interface MenuProps {
     headerRef: React.RefObject<any>;
@@ -34,9 +33,6 @@ export default class Menu extends React.Component<MenuProps, any>{
 
     }
 
-    componentDidUpdate(prevProps: Readonly<MenuProps>, prevState: Readonly<any>, snapshot?: any) {
-
-    }
 
     toggleModal = () => {
 

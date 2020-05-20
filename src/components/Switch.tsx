@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {IoMdMoon as Moon, IoMdSunny as Sun, IoMdBeer as Beer } from 'react-icons/io';
+import {IoMdMoon as Moon, IoMdSunny as Sun} from 'react-icons/io';
 import {ThemeContext, ThemeMode} from "../ThemeContext";
 
 
